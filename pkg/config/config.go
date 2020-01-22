@@ -151,7 +151,8 @@ type LintersSettings struct {
 	Maligned struct {
 		SuggestNewOrder bool `mapstructure:"suggest-new"`
 	}
-	Dupl struct {
+	Pairs Settings
+	Dupl  struct {
 		Threshold int
 	}
 	Goconst struct {
@@ -191,6 +192,8 @@ type LintersSettings struct {
 	Dogsled  DogsledSettings
 	Gocognit GocognitSettings
 }
+
+type Settings map[string][]string
 
 type GovetSettings struct {
 	CheckShadowing bool `mapstructure:"check-shadowing"`

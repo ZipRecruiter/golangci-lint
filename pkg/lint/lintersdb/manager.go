@@ -56,9 +56,13 @@ func enableLinterConfigs(lcs []*linter.Config, isEnabled func(lc *linter.Config)
 
 //nolint:funlen
 func (m Manager) GetAllSupportedLinterConfigs() []*linter.Config {
-	var govetCfg *config.GovetSettings
+	var (
+		govetCfg *config.GovetSettings
+		pairsCfg config.Settings
+	)
 	if m.cfg != nil {
 		govetCfg = &m.cfg.LintersSettings.Govet
+		pairsCfg = m.cfg.LintersSettings.Pairs
 	}
 	const megacheckName = "megacheck"
 	lcs := []*linter.Config{
@@ -67,6 +71,11 @@ func (m Manager) GetAllSupportedLinterConfigs() []*linter.Config {
 			WithPresets(linter.PresetBugs).
 			WithAlternativeNames("vet", "vetshadow").
 			WithURL("https://golang.org/cmd/vet/"),
+
+		linter.NewConfig(golinters.NewPairs(pairsCfg)).
+			WithLoadForGoAnalysis().
+			WithURL("https://github.com/ZipRecruiter/splinter"),
+
 		linter.NewConfig(golinters.NewBodyclose()).
 			WithLoadForGoAnalysis().
 			WithPresets(linter.PresetPerformance, linter.PresetBugs).

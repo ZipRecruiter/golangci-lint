@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	github.com/OpenPeeDeeP/depguard v1.0.1
+	github.com/ZipRecruiter/splinter v0.0.0-20200118173544-b8baac50cd82
 	github.com/bombsimon/wsl/v2 v2.0.0
 	github.com/fatih/color v1.7.0
 	github.com/go-critic/go-critic v0.4.0
@@ -42,7 +43,7 @@ require (
 	github.com/ultraware/whitespace v0.0.4
 	github.com/uudashr/gocognit v1.0.1
 	github.com/valyala/quicktemplate v1.2.0
-	golang.org/x/tools v0.0.0-20191113232020-e2727e816f5a
+	golang.org/x/tools v0.0.0-20200114235610-7ae403b6b589
 	gopkg.in/yaml.v2 v2.2.7
 	honnef.co/go/tools v0.0.1-2019.2.3
 	mvdan.cc/interfacer v0.0.0-20180901003855-c20040233aed
